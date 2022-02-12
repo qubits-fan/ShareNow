@@ -1,7 +1,7 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
     <qresource prefix="icons">
-        <file alias="camera.png">images/camera-black.png</file>
-        <file alias="folder.png">images/blue-folder-horizontal-open.png</file>
+        <file alias="file_upload.png">images/file.png</file>
+        <file alias="file_icon.png">images/file1.png</file>
      </qresource>
 </RCC>
