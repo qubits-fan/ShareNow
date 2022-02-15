@@ -1,10 +1,12 @@
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 import sys
 from auth.authgui import LogInSignUpWindow
 from auth.auth import LogIn
 from mainwindow.maingui import MainWorkWindow
 import json
 import config
+
+config.qPool = QtCore.QThreadPool()
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -15,7 +17,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.login_window = LogInSignUpWindow()
         self.login = LogIn()
         self.mainWorkWindow = MainWorkWindow(self.login)
-
 
         if self.login.getToken() is None:
             self.setCentralWidget(self.login_window)
@@ -47,8 +48,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.login.token = res['token']
         self.login.valid_till = res['expires']
         try:
-            with open('auth.json','w') as f:
-                json.dump({'valid_till': self.login.valid_till,'token':self.login.token},f)
+            with open('auth.json', 'w') as f:
+                json.dump({'valid_till': self.login.valid_till, 'token': self.login.token}, f)
         except Exception:
             pass
         print(res)

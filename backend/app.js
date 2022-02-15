@@ -51,7 +51,7 @@ app.use(file_upload())
 //  Routing Set Up
 const loginRoute = require('./routes/login')
 const fileUploadRoute = require('./routes/fileupload')
-
+const fileSharingRoute = require('./routes/filesharing')
 
 // app.use('/fileLoad'),async (req,res)=>{
 //   // console.log(req.files.form_field_name.data)
@@ -60,8 +60,7 @@ const fileUploadRoute = require('./routes/fileupload')
 // })
 app.use(loginRoute)
 app.use(fileUploadRoute)
-
-
+app.use(fileSharingRoute)
 
 
 //

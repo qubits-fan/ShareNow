@@ -2,6 +2,6 @@
 <RCC version="1.0">
     <qresource prefix="icons">
         <file alias="file_upload.png">images/file.png</file>
-        <file alias="file_icon.png">images/file1.png</file>
+        <file alias="file_icon.png">images/file2.png</file>
      </qresource>
 </RCC>

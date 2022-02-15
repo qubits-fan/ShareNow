@@ -7,12 +7,12 @@ const auth = (async (req,res,next)=>{
            const decrypt = jwt.verify(token,process.env.SECRET_TOKEN)
            const userid = decrypt.id
            if (! userid) {
+               console.log("Auth Failed")
                 return res.status(401).send({
                       message: 'UnAuthorized'
                  })
            }
            const user = await dbquery(`SELECT * FROM auth_user where id=${userid}`)
-           console.log(user)
            if(user.length == 0) {
                return res.status(401).send({
                      message: 'UnAuthorized'
@@ -22,7 +22,6 @@ const auth = (async (req,res,next)=>{
            next()
       }
       catch (e) {
-
           res.status(500).send({message: e.toString()})
       }
 })

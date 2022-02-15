@@ -5,6 +5,7 @@
 import requests
 import datetime
 import json
+import config
 from PyQt5.QtCore import QRunnable, QObject, pyqtSignal, pyqtSlot, QThreadPool
 
 signup_url = 'http://localhost:5000/signup'
@@ -42,7 +43,7 @@ class LogIn:
         self.password = password
         self.valid_till = None
         self.load_local_credential()
-        self.workerPool = QThreadPool()
+        self.workerPool = config.qPool
 
     def authenticate(self, email, password):
         worker = AuthWorker(login_url, data={'email': email, 'password': password})

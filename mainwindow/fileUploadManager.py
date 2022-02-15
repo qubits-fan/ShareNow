@@ -37,7 +37,7 @@ class FileUploadWorker(QRunnable):
 
 class FileUploadManager:
     def __init__(self, login):
-        self.qPool = QThreadPool()
+        self.qPool = config.qPool
         self.login = login
         self.url = config.url + 'fileUpload'
 
